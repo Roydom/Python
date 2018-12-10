@@ -1,0 +1,33 @@
+#!/bin/bash
+list(){
+num=echo "$str" |wc -c
+while [ "$num" != 0 ];do
+	echo $str
+	num=$(expr "num" - 1)
+done
+}
+
+help(){
+cat <<EFO
+这个是一个帮助函数
+接受参数为 -l -c
+EFO
+}
+
+error(){
+echo ERROR
+}
+
+while [ -z $1 ];do
+	case $1 in
+		-l*)
+		str=$2;  #将现在的2号参数给str
+		shift 2;  #将参数整体前移2个
+		list;;
+		-c*)
+		help;;
+		*)
+		error;
+		break;;
+	esac
+done
