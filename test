@@ -17,18 +17,3 @@ EFO
 error(){
 echo ERROR
 }
-
-while [ -z $1 ];do
-	case $1 in
-		-l*)
-		str=$2;  #将现在的2号参数给str
-		shift 2;  #将参数整体前移2个
-		list;;
-		-c*)
-		help;;
-		*)
-		error;
-		break;;
-	esac
-done
-1,2,3,45,6
